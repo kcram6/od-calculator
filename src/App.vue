@@ -89,6 +89,12 @@ export default {
   cursor: pointer;
   border-radius: 5px;
   margin-top: 35px;
+  transition: all 150ms linear;
+}
+
+.reset-button:hover {
+  background-color: #0baaaa;
+  color: white;
 }
 
 section {
