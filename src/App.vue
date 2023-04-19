@@ -22,6 +22,9 @@
     <p>{{ percentage }}%: {{ calcPercentage | toCurrency }}</p>
     <p>Total Paid: {{ sumPaid | toCurrency }}</p>
     <p>Total Due: {{ amountDue | toCurrency }}</p>
+
+    <button class="reset-button" onClick="window.location.reload();">Reset</button>
+
     </div>
     </div>
 
@@ -75,6 +78,19 @@ export default {
   font-size: 120%;
 }
 
+.reset-button {
+  border: 1px solid #0baaaa;
+  color: #0baaaa;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-family: Quicksand;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 35px;
+}
+
 section {
   background-color: rgba(11,170,170, 0.1);
   min-height: 100vh;
@@ -112,6 +128,7 @@ body {
 #app label, #app input {
   width: calc(100% - 30px);
   text-align: left;
+  font-family: "Avenir";
 }
 
 #app input {
@@ -137,6 +154,13 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: #0baaaa;
 }
+
+@media only screen and (max-width: 1000px){
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
