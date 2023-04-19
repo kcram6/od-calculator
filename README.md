@@ -26,5 +26,4 @@ Install on localhost
 6. Copy the text in the right paragraph and send invoice.
 
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 # od-calculator
