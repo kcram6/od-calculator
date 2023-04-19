@@ -109,7 +109,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
@@ -128,7 +128,7 @@ body {
 #app label, #app input {
   width: calc(100% - 30px);
   text-align: left;
-  font-family: "Avenir";
+  font-family: "Quicksand";
 }
 
 #app input {
