@@ -1,26 +1,33 @@
 <template>
+<section>
   <div id="app">
-    <h1>OD Billing Calculator</h1>
-    <label>OD percentage
+    <h1>OD Billing Calculator<span class="highlight">.</span></h1>
+    <div class="grid-2">
+      <div>
+    
+    <label>OD Percentage
     <input type="number" placeholder="40" id="percentage" v-model.number="percentage"></label>
     <label>Total $ Collected
     <input type="number" placeholder="4,500" id="total-collected" v-model.number="totalCollected"></label>
-    <label>Total Paid
+    <label>Total $ Paid
     <input type="number" placeholder="2,000" id="total-paid" v-model.number="totalPaid"></label>
-    <label>Previous Invoice Amount
+    <label>Previous Invoice $ Amount
     <input type="number" placeholder="500" id="total-paid-2" v-model.number="prevInvoiceAmount"></label>
     <!-- <h2>${{ owedAmount }}</h2> -->
-
-    <hr>
+</div>
+    <div>
 
     <h4>Invoice Format:</h4>
-    <p>Total Collected: ${{ totalCollected }}</p>
-    <p>{{ percentage }}%: ${{ calcPercentage }}</p>
-    <p>Total Paid: ${{ sumPaid }}</p>
-    <p>Total Due: ${{ amountDue }}</p>
+    <p>Total Collected: {{ totalCollected | toCurrency }}</p>
+    <p>{{ percentage }}%: {{ calcPercentage | toCurrency }}</p>
+    <p>Total Paid: {{ sumPaid | toCurrency }}</p>
+    <p>Total Due: {{ amountDue | toCurrency }}</p>
+    </div>
+    </div>
 
 
   </div>
+  </section>
 </template>
 
 <script>
@@ -40,26 +47,79 @@ export default {
     // },
     sumPaid: function () {
       // return this.totalPaid + this.prevInvoiceAmount
-      return parseFloat(this.totalPaid + this.prevInvoiceAmount).toFixed(2)
+      return this.totalPaid + this.prevInvoiceAmount
     },
     calcPercentage: function () {
-      return (this.totalCollected).toFixed(2) * (this.percentage / 100)
+      return this.totalCollected * (this.percentage / 100)
     },
     amountDue: function () {
-      return ((this.totalCollected).toFixed(2) * (this.percentage / 100)) - (parseFloat(this.totalPaid + this.prevInvoiceAmount).toFixed(2))
+      return (this.totalCollected * (this.percentage / 100)) - (this.totalPaid + this.prevInvoiceAmount)
     }
   }
 }
+
+
 </script>
 
 <style>
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5%;
+}
+
+.highlight {
+  font-family: Comfortaa;
+  color: #0baaaa;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+section {
+  background-color: rgba(11,170,170, 0.1);
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+.grid-2 div {
+  background-color: white;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  padding: 35px;
+}
+
+body {
+  margin: 0px;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0 auto;
+  max-width: 1080px;
+  width: 85%;
+  
+}
+
+#app h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+}
+
+#app label, #app input {
+  width: calc(100% - 30px);
+  text-align: left;
+}
+
+#app input {
+  margin-bottom: 25px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 h1, h2 {
