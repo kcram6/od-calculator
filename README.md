@@ -16,5 +16,15 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## How to Use
+
+Install on localhost
+1. Input the OrderDefense %
+2. Login to the backend of the store and get the total $ generated from OrderDefense
+3. Input that number in Total $ Collected
+4. Check the customer's previous invoice
+5. Input the Total $ Paid and the Previous Invoice $ Amound (only if the previous invoice was paid)
+6. Copy the text in the right paragraph and send invoice.
+
+
 # od-calculator
